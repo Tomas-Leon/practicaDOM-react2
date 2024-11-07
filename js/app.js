@@ -17,18 +17,30 @@ function cambiarTitulo() {
 }
 
 function crearParrafo() {
-  console.log("desde la funcion crearParrafo");
-  //1- crear el elemento nuevo
-  const parrafoNuevo = document.createElement("p"); //<p> </p>
-  //2- preparar parrafo
-  parrafoNuevo.innerText =
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nulla tempore praesentium similique commodi voluptatibus excepturi, explicabo necessitatibus repellat dignissimos tenetur, autem eaque veniam error at nesciunt? Eligendi impedit, delectus dicta incidunt totam cumque, voluptas aliquid sapiente nam ratione suscipit ullam repellendus vel ipsum deserunt, repellat explicabo adipisci saepe dignissimos!";
-  parrafoNuevo.className = "lead"; //vemos luego una alternativa de classname
-  //3- insertar elemento en el DOM
-  const contenedorPadre = document.getElementById("contenedorPadre");
-  //  contenedorPadre.appendChild(parrafoNuevo) //agrega el nodo al final como ultimo hijo
-  //  contenedorPadre.prepend(parrafoNuevo)//agrega el nodo al principio
-  contenedorPadre.insertBefore(parrafoNuevo, btnVerMas);
+  if (btnVerMas.innerText === "Ver mas...") {
+    console.log("desde la funcion crearParrafo");
+    //1- crear el elemento nuevo
+    const parrafoNuevo = document.createElement("p"); //<p> </p>
+    //2- preparar parrafo
+    parrafoNuevo.innerText =
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nulla tempore praesentium similique commodi voluptatibus excepturi, explicabo necessitatibus repellat dignissimos tenetur, autem eaque veniam error at nesciunt? Eligendi impedit, delectus dicta incidunt totam cumque, voluptas aliquid sapiente nam ratione suscipit ullam repellendus vel ipsum deserunt, repellat explicabo adipisci saepe dignissimos!";
+    parrafoNuevo.className = "lead"; //vemos luego una alternativa de classname
+    //3- insertar elemento en el DOM
+    const contenedorPadre = document.getElementById("contenedorPadre");
+    //  contenedorPadre.appendChild(parrafoNuevo) //agrega el nodo al final como ultimo hijo
+    //  contenedorPadre.prepend(parrafoNuevo)//agrega el nodo al principio
+    contenedorPadre.insertBefore(parrafoNuevo, btnVerMas);
+    btnVerMas.innerText = "Ocultar";
+    btnVerMas.classList.remove("btn-outline-info");
+    btnVerMas.classList.add("btn-danger");
+    //  btnVerMas.className('btn btn-danger')
+  } else {
+    console.log(contenedorPadre.children);
+    contenedorPadre.removeChild(contenedorPadre.children[2])
+    btnVerMas.innerText = 'Ver mas...'
+    btnVerMas.classList.remove("btn-danger");
+    btnVerMas.classList.add("btn-outline-info");
+  }
 }
 
 //1- buscar el boton ver mas
