@@ -4,7 +4,8 @@ function cambiarTitulo (){
     // const tituloPrincipal = document.getElementsByTagName('h1')//te devuelve un array
     const tituloPrincipal = document.querySelector('h1')//te devuelve un objeto, solo el primero que encuentra
     console.log(tituloPrincipal)
-    tituloPrincipal.innerText = 'Hola mundo 🌍'
+    // tituloPrincipal.innerText = 'Hola mundo 🌍'
+    tituloPrincipal.innerHTML = '<b>Hola</b> mundo 🌍'//para poder poner etiquetas HTML
     tituloPrincipal.className = 'text-info display-4'
     console.log(tituloPrincipal)
     // const parrafos = document.getElementById('parrafoDestacado')
